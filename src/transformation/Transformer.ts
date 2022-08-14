@@ -539,6 +539,7 @@ export class Transformer {
 
     private transformStringLiteral(node: luaparse.StringLiteral): ts.StringLiteral {
         node.value = node.raw.replaceAll('\"', '')
+        node.value = node.value.replaceAll("\'", '')
         return this.builder.createStringLiteral(node.value, node);
     }
 
